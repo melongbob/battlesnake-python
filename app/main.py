@@ -6,7 +6,7 @@ import random
 
 @bottle.route('/')
 def static():
-    return "the server is running"
+    return "the server is running~"
 
 
 @bottle.route('/static/<path:path>')
@@ -32,8 +32,8 @@ def start():
         'color': '#00FF00',
         'taunt': '{} ({}x{})'.format(game_id, board_width, board_height),
         'head_url': head_url,
-		'head_type': "tongue",
-		'tail_type': "fat-rattle"
+	'head_type': "tongue",
+	'tail_type': "fat-rattle"
     }
 
 
@@ -45,7 +45,15 @@ def move():
     
     directions = ['up', 'down', 'left', 'right']
     direction = random.choice(directions)
-    print direction
+
+    #food = data['food']['data'][0]
+    #snakeHead = data['body']['data'][0]
+
+    #if food.x - snakeHead.x > 0:
+    #    direction = 'right'
+
+    #print(snakeHead, food)
+    print(direction)
     return {
         'move': direction,
         'taunt': 'battlesnake-python!'
@@ -53,11 +61,11 @@ def move():
 
 
 # Expose WSGI app (so gunicorn can find it)
-application = bottle.default_app()
+#application = bottle.default_app()
 
-if __name__ == '__main__':
-    bottle.run(
-        application,
-        host=os.getenv('IP', '0.0.0.0'),
-        port=os.getenv('PORT', '8080'),
-        debug = True)
+#if __name__ == '__main__':
+#    bottle.run(
+#        application,
+#        host=os.getenv('IP', '0.0.0.0'),
+#        port=os.getenv('PORT', '8080'),
+#        debug = True)
