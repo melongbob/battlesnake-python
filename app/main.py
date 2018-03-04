@@ -6,7 +6,7 @@ import random
 
 @bottle.route('/')
 def static():
-    return "the server is running !!!"
+    return "the server is running"
 
 
 @bottle.route('/static/<path:path>')
@@ -31,7 +31,9 @@ def start():
     return {
         'color': '#00FF00',
         'taunt': '{} ({}x{})'.format(game_id, board_width, board_height),
-        'head_url': head_url
+        'head_url': head_url,
+		'head_type': "tongue",
+		'tail_type': "fat-rattle"
     }
 
 
